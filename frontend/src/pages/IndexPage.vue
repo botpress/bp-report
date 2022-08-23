@@ -43,11 +43,10 @@
           <json-tree :data="result.raw.payload" :showDoubleQuotes="false"></json-tree>
 
           <div class="text-h6 q-mt-md">Raw Event</div>
-          <json-tree :data="result.raw" :showDoubleQuotes="false"></json-tree>
+          <json-tree :data="result.raw" :showDoubleQuotes="false" :deep="expandAll? undefined : 0"></json-tree>
         </div>
 
         <div v-if="result.debugType === 'log'" class="q-ma-md">
-
           <json-tree :data="result" :showDoubleQuotes="false"></json-tree>
         </div>
 
