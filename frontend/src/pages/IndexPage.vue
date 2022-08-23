@@ -1,19 +1,18 @@
 <template>
   <q-page class="flex q-my-lg full-width overflow-hidden">
-    <q-header>
+    <q-header >
 
-      <q-toolbar>
+      <q-toolbar class="bg-blue-9" >
         <q-toolbar-title>
-          Events and Logs
+          Event and Log Snapshot
         </q-toolbar-title>
         <q-toggle v-model="showLogs" label="Show Logs" color="white" />
-        <q-btn label="expand all" />
+        <q-toggle v-model="expandAll" label="Expand All" color="white" />
 
       </q-toolbar>
     </q-header>
-    <q-list dense class="full-width">
-
-      <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle
+    <q-list dense class="full-width" :key="expandAll">
+      <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle :default-opened="expandAll"
         class="full-width" :header-class="result.debugType">
 
         <template v-slot:header v-if="result.debugType === 'event'">
@@ -67,6 +66,7 @@ export default {
   setup() {
     const results = ref([])
     const showLogs = ref(false)
+    const expandAll = ref(false)
     const filtered = computed(() => {
       return results.value.filter(a => {
         return showLogs.value || a.debugType === "event"
@@ -75,7 +75,7 @@ export default {
 
     // expose to template and other options API hooks
     return {
-      results, showLogs, filtered
+      results, showLogs, filtered,expandAll
     }
   },
 
@@ -145,9 +145,5 @@ export default {
 </script>
 
 <style>
-.log {}
 
-.event-header {
-  padding: 30px 10px;
-}
 </style>
