@@ -152,7 +152,7 @@ export default {
       this.results.sort((a, b) => {
         const aTime = Date.parse(a.timestamp)
         const bTime = Date.parse(b.timestamp)
-        return aTime > bTime ? -1 : aTime < bTime
+        return bTime > aTime ? -1 : bTime < aTime
       })
 
 
