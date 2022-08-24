@@ -1,6 +1,6 @@
 ## Content-Types
 
-Every time the server is started, Content-types that you put in this folder will be copied in the `data/global/content-types/starter-module/` folder.
+Every time the server is started, Content-types that you put in this folder will be copied in the `data/global/content-types/bp-report/` folder.
 They will overwrite existing files only if they haven't been edited manually.
 
 The name of your content types must be unique throughout the server

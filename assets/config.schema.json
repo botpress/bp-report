@@ -1,5 +1,5 @@
 {
-  "description": "Anything that you would like to make configurable to the bot owner would go in this file.\nBotpress handles itself loading the configuration files.\n\nBot configuration files will override Global configuration when available:\nFor example, `data/bots/MY_BOT/config/starter-module.json` will be used by MY_BOT, while `data/global/config/starter-module.json` will be used for all others",
+  "description": "Anything that you would like to make configurable to the bot owner would go in this file.\nBotpress handles itself loading the configuration files.\n\nBot configuration files will override Global configuration when available:\nFor example, `data/bots/MY_BOT/config/bp-report.json` will be used by MY_BOT, while `data/global/config/bp-report.json` will be used for all others",
   "type": "object",
   "properties": {
     "someEndpoint": {

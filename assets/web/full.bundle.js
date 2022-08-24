@@ -1,4 +1,4 @@
-botpress = typeof botpress === "object" ? botpress : {}; botpress["starter-module"] =
+botpress = typeof botpress === "object" ? botpress : {}; botpress["bp-report"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

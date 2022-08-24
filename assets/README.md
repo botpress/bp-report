@@ -1,6 +1,6 @@
 ## Assets
 
-Every time the server is started, all the content of this folder will be copied in the `assets/modules/starter-module/` folder.
+Every time the server is started, all the content of this folder will be copied in the `assets/modules/bp-report/` folder.
 They will overwrite existing files.
 
 Beware: This is a little different from actions and hooks, since they will be replaced even if you edit them.
