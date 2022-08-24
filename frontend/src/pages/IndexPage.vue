@@ -19,7 +19,7 @@
 
           <q-item clickable v-ripple class="full-width">
             <q-item-section avatar>
-              <q-icon :name="result.raw.direction === 'incoming' ? 'face' : 'smart_toy'" />
+              <q-icon :name="result.raw.direction === 'incoming' ? 'account_circle' : 'smart_toy'" />
             </q-item-section>
 
             <q-item-section>{{ result.raw.preview }}</q-item-section>
