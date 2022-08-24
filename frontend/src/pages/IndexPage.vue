@@ -7,7 +7,6 @@
           Log Snapshot {{ reportId }}
         </q-toolbar-title>
 
-        <q-btn rounded class="q-mr-sm" label="go to editor" :to="`/studio/${botId}/flows/main`" />
         <q-toggle v-model="showLogs" label="Show Logs" color="white" />
         <q-toggle v-model="expandAll" label="Expand All" color="white" />
 
@@ -96,7 +95,7 @@ export default {
 
 
 
-    get(`http://localhost:3000/api/v1/bots/303-tester/mod/debug/query.json?id=${reportId}`).then(result => {
+    get(`/api/v1/bots/303-tester/mod/debug/query.json?id=${reportId}`).then(result => {
       this.description = result.data.description
       const events = result.data.mergedLogsAndEvents.filter(a => a.debugType === 'event');
       const logs = result.data.mergedLogsAndEvents.filter(a => a.debugType !== 'event');
