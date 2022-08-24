@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex q-my-lg full-width overflow-hidden">
+  <q-page class="q-my-lg full-width overflow-hidden">
     <q-header>
 
       <q-toolbar class="bg-blue-9">
@@ -13,8 +13,8 @@
 
       </q-toolbar>
     </q-header>
-    <div class="text-h6 q-pl-md full-width">Description of issue</div>
-    <div class="text-body1 q-pl-md">{{ description }}</div>
+    <div class="text-h6 q-pl-md full-width">Description of issue for botId <strong>{{botId}}</strong></div>
+    <div class="text-body1 q-pl-md q-mt-sm">{{ description }}</div>
     <q-list dense class="full-width q-mt-lg" :key="expandAll" :separator="!showLogs">
       <q-item-label header>Events and logs</q-item-label>
       <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle
