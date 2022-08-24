@@ -10,7 +10,7 @@ Note: issues are public, so make sure to only use this while in development.
 You can report anything, bugs or incorrect wordings, and you'll get a shareable link for your work.
 
 ## Setting it up
-1. Download [bp-report.tgz](./bp-report.tgz)
+1. Download [bp-report.tgz](./custom_module/bp-report.tgz)
 2. In Botpress go to the modules configuration page
 3. Click upload module
 4. select the download tgz file
