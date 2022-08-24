@@ -1,19 +1,24 @@
 <template>
   <q-page class="flex q-my-lg full-width overflow-hidden">
-    <q-header >
+    <q-header>
 
-      <q-toolbar class="bg-blue-9" >
+      <q-toolbar class="bg-blue-9">
         <q-toolbar-title>
-          Event and Log Snapshot
+          Log Snapshot {{ reportId }}
         </q-toolbar-title>
+
+        <q-btn rounded class="q-ml-sm" label="go to editor" :to="`/studio/${botId}/flows/main`" />
         <q-toggle v-model="showLogs" label="Show Logs" color="white" />
         <q-toggle v-model="expandAll" label="Expand All" color="white" />
-
+        
       </q-toolbar>
     </q-header>
-    <q-list dense class="full-width" :key="expandAll" :separator="!showLogs">
-      <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle :default-opened="expandAll"
-        class="full-width" :header-class="result.debugType">
+    <div class="text-h6 q-pl-md full-width">Description of issue</div>
+    <div class="text-body1 q-pl-md">{{ description }}</div>
+    <q-list dense class="full-width q-mt-lg" :key="expandAll" :separator="!showLogs">
+      <q-item-label header>Events and logs</q-item-label>
+      <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle
+        :default-opened="expandAll" class="full-width" :header-class="result.debugType">
 
         <template v-slot:header v-if="result.debugType === 'event'">
 
@@ -43,7 +48,7 @@
           <json-tree :data="result.raw.payload" :showDoubleQuotes="false"></json-tree>
 
           <div class="text-h6 q-mt-md">Raw Event</div>
-          <json-tree :data="result.raw" :showDoubleQuotes="false" :deep="expandAll? undefined : 0"></json-tree>
+          <json-tree :data="result.raw" :showDoubleQuotes="false" :deep="expandAll ? undefined : 0"></json-tree>
         </div>
 
         <div v-if="result.debugType === 'log'" class="q-ma-md">
@@ -63,9 +68,12 @@ import { detailedDiff } from 'deep-object-diff';
 
 export default {
   setup() {
+    const botId = ref(null)
+    const reportId = ref(null)
     const results = ref([])
     const showLogs = ref(false)
     const expandAll = ref(false)
+    const description = ref(null)
     const filtered = computed(() => {
       return results.value.filter(a => {
         return showLogs.value || a.debugType === "event"
@@ -74,15 +82,26 @@ export default {
 
     // expose to template and other options API hooks
     return {
-      results, showLogs, filtered,expandAll
+      results, showLogs, filtered, expandAll, description, botId, reportId
     }
   },
 
   mounted() {
-    get("http://localhost:3000/api/v1/bots/303-tester/mod/debug/query.json?id=186977d0-9397-4a28-9728-cb7b0d3f6d8f").then(result => {
 
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const reportId = urlParams.get('reportId')
+
+    this.reportId = reportId;
+
+
+
+    get(`http://localhost:3000/api/v1/bots/303-tester/mod/debug/query.json?id=${reportId}`).then(result => {
+      this.description = result.data.description
       const events = result.data.mergedLogsAndEvents.filter(a => a.debugType === 'event');
       const logs = result.data.mergedLogsAndEvents.filter(a => a.debugType !== 'event');
+
+      this.botId = events[0].botId
 
       const differentials = []
 
@@ -144,5 +163,4 @@ export default {
 </script>
 
 <style>
-
 </style>
