@@ -1,10 +1,11 @@
 # Botpress Issue Reporter
 
-This is a custom module that allows you to quickly and easily share issues with your conversations in botpress with your team or the botpress team. 
+This is a custom module that allows you to quickly and easily share issues with your conversations in botpress with your team or with the botpress team. 
 
-
+## Example 
 ![Botpress Custom Module Template](readme-banner.png)
 
+You can report anything, bugs or incorrect wordings.
 
 ## Getting started
 1. Download [bp-report.tgz](./bp-report.tgz)
@@ -18,4 +19,4 @@ This is a custom module that allows you to quickly and easily share issues with 
 9. restart botpress
 10. in any conversation type "bp_report" to report an issue to us,
 11. type in a description of the issue
-12. we'll automatically be notified of the issue if we are supporting you, otherwise you'll get a link to the conversation information.
+12. You'll get a link to the conversation information.
