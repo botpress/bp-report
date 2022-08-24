@@ -4,7 +4,7 @@ const axios = require('axios')
 const uuid = require('uuid')
 
 const sendCorrectLink = async id => {
-  const apiUrl = `${process.EXTERNAL_URL}/assets/modules/bp-report/spa/index.html?reportId=${id}`
+  const apiUrl = `${process.EXTERNAL_URL}/assets/modules/bp-report/spa/?reportId=${id}`
   // const apiUrl = `http://localhost:9000/?reportId=${id}`
   const message = {
     type: 'text',
