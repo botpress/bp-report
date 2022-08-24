@@ -11,7 +11,7 @@
 
       </q-toolbar>
     </q-header>
-    <q-list dense class="full-width" :key="expandAll">
+    <q-list dense class="full-width" :key="expandAll" :separator="!showLogs">
       <q-expansion-item v-for="(result, resultIndex) in filtered" :key="resultIndex" dense dense-toggle :default-opened="expandAll"
         class="full-width" :header-class="result.debugType">
 
