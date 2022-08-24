@@ -7,10 +7,10 @@
           Log Snapshot {{ reportId }}
         </q-toolbar-title>
 
-        <q-btn rounded class="q-ml-sm" label="go to editor" :to="`/studio/${botId}/flows/main`" />
+        <q-btn rounded class="q-mr-sm" label="go to editor" :to="`/studio/${botId}/flows/main`" />
         <q-toggle v-model="showLogs" label="Show Logs" color="white" />
         <q-toggle v-model="expandAll" label="Expand All" color="white" />
-        
+
       </q-toolbar>
     </q-header>
     <div class="text-h6 q-pl-md full-width">Description of issue</div>
