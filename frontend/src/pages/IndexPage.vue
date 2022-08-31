@@ -90,12 +90,13 @@ export default {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const reportId = urlParams.get('reportId')
+    const botId = urlParams.get('botId')
 
     this.reportId = reportId;
 
 
 
-    get(`/api/v1/bots/303-tester/mod/debug/query.json?id=${reportId}`).then(result => {
+    get(`/api/v1/bots/${botId}/mod/debug/query.json?id=${reportId}`).then(result => {
       this.description = result.data.description
       const events = result.data.mergedLogsAndEvents.filter(a => a.debugType === 'event');
       const logs = result.data.mergedLogsAndEvents.filter(a => a.debugType !== 'event');

@@ -32,4 +32,10 @@ You can report anything, bugs or incorrect wordings, and you'll get a shareable 
 2. type in a description of the issue
 3. You'll get a link to the conversation information and optionally a notification in slack.
 
+## to rebuild it
+1. install quasar `yarn global add @quasar/cli` or `npm i -g @quasar/cli`
+2. `npm i` in frontend and custom_module folders
+3. make changes (dashboard code is in [frontend](./frontend) and hooks are in [custom_module/src/hooks](./custom_module/src/hooks))
+4. `. ./build.sh`
+5. The custom module will be found in [bp-report.tgz](./bp-report.tgz).
 
